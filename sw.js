@@ -27,10 +27,10 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-e5fa1d4eb2155935d15d.js"
+    "url": "webpack-runtime-b8b11658103dcc42796b.js"
   },
   {
-    "url": "commons-566d43eafeae5a826afa.js"
+    "url": "commons-9517624df59e68f7cfc8.js"
   },
   {
     "url": "app-19126bd101caed1879d2.js"
@@ -40,7 +40,7 @@ self.__precacheManifest = [
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "afbbd89ef87f0bc4ddebd30b6882a00b"
+    "revision": "eeb845a643efbe04c15bb6053df55670"
   },
   {
     "url": "google-fonts/s/archivo/v6/k3kQo8UDI-1M0wlSfdnoLg.woff2",
@@ -49,6 +49,22 @@ self.__precacheManifest = [
   {
     "url": "google-fonts/s/archivo/v6/k3kVo8UDI-1M0wlSdWLNO0bhLA.woff2",
     "revision": "116e61e89771d225a05546e0fe04a22b"
+  },
+  {
+    "url": "google-fonts/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gnD_g.woff2",
+    "revision": "39d93cf678c740f9f6b2b1cfde34bee3"
+  },
+  {
+    "url": "google-fonts/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2",
+    "revision": "bc3aa95dca08f5fee5291e34959c27bc"
+  },
+  {
+    "url": "google-fonts/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2",
+    "revision": "2735a3a69b509faf3577afd25bdf552e"
+  },
+  {
+    "url": "google-fonts/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2",
+    "revision": "479970ffb74f2117317f9d24d9e317fe"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
