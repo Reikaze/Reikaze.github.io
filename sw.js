@@ -27,68 +27,49 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-14f785f6ef08b6062078.js"
+    "url": "webpack-runtime-124b98cd8d9ee9a7aea7.js"
   },
   {
-    "url": "commons-9d5d7620eeb1ea706fe0.js"
+    "url": "framework-421e02f1f9f654c6d6b4.js"
   },
   {
-    "url": "app-19126bd101caed1879d2.js"
+    "url": "dc6a8720040df98778fe970bf6c000a41750d3ae-d92d21c839e654c79401.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-0c877ea0c9038f467145.js"
+    "url": "app-d7868f97639144fd2962.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "5f9b49b083d1b140bce4a5ba582af313"
+    "revision": "35639a1e3a421be8f8ac8e3576e112f4"
   },
   {
-    "url": "google-fonts/s/archivo/v6/k3kQo8UDI-1M0wlSfdnoLg.woff2",
-    "revision": "1311922fe001df6e1e8465643d56611b"
-  },
-  {
-    "url": "google-fonts/s/archivo/v6/k3kVo8UDI-1M0wlSdWLNO0bhLA.woff2",
-    "revision": "116e61e89771d225a05546e0fe04a22b"
-  },
-  {
-    "url": "google-fonts/s/montserrat/v14/JTURjIg1_i6t8kCHKm45_dJE3gnD_g.woff2",
-    "revision": "39d93cf678c740f9f6b2b1cfde34bee3"
-  },
-  {
-    "url": "google-fonts/s/montserrat/v14/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2",
-    "revision": "bc3aa95dca08f5fee5291e34959c27bc"
-  },
-  {
-    "url": "google-fonts/s/poiretone/v8/UqyVK80NJXN4zfRgbdfbo55cVw.woff2",
-    "revision": "0ae23a5464df9d1cb33d8140d053c33b"
-  },
-  {
-    "url": "google-fonts/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfBBc4.woff2",
-    "revision": "2735a3a69b509faf3577afd25bdf552e"
-  },
-  {
-    "url": "google-fonts/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxK.woff2",
-    "revision": "479970ffb74f2117317f9d24d9e317fe"
+    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-d3ee03be2ef85643f368.js"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "d274adf0f008ef152ce70a312b04b730"
+    "revision": "f6081b83111aea4128c98944b7fafccc"
+  },
+  {
+    "url": "page-data/app-data.json",
+    "revision": "4e3b11b41aa2acfba921cf773e528b56"
+  },
+  {
+    "url": "polyfill-dacc9be2267c006727cc.js"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "95e831b3f6de60082e33ce248b616c7d"
+    "revision": "b7692352adab03bd08cf29106ae2ad61"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/(\.js$|\.css$|static\/)/, new workbox.strategies.CacheFirst(), 'GET');
-workbox.routing.registerRoute(/^https?:.*\page-data\/.*\/page-data\.json/, new workbox.strategies.NetworkFirst(), 'GET');
+workbox.routing.registerRoute(/^https?:.*\/page-data\/.*\.json/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 
 /* global importScripts, workbox, idbKeyval */
-
-importScripts(`idb-keyval-iife.min.js`)
+importScripts(`idb-keyval-3.2.0-iife.min.js`)
 
 const { NavigationRoute } = workbox.routing
 
@@ -125,7 +106,7 @@ function handleAPIRequest({ event }) {
   const params = pathname.match(/:(.+)/)[1]
   const data = {}
 
-  if (params.indexOf(`=`) !== -1) {
+  if (params.includes(`=`)) {
     params.split(`&`).forEach(param => {
       const [key, val] = param.split(`=`)
       data[key] = val
@@ -169,7 +150,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-19126bd101caed1879d2.js`))) {
+  if (!resources || !(await caches.match(`/app-d7868f97639144fd2962.js`))) {
     return await fetch(event.request)
   }
 
